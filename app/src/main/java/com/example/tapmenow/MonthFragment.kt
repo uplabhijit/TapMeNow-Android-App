@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.LinearLayout.LayoutParams
+import android.widget.RelativeLayout
 import android.widget.TextView
 import java.util.*
 
@@ -126,103 +127,197 @@ class MonthFragment : Fragment() {
     private fun putViews() {
 
         for (i in 1..numofDays) {
-            val text_view: TextView = TextView(context)
+            val date: TextView = TextView(context)
+
 
             // Creating a LinearLayout.LayoutParams object for text view
             var params: LayoutParams = LayoutParams(
                 LayoutParams.WRAP_CONTENT, // This will define text view width
                 LayoutParams.WRAP_CONTENT
-
             )
 
+            date.setPadding(0, 10, 0, 0);
+
             // Now, specify the text view width and height (dimension)
-            text_view.layoutParams = params
+            date.layoutParams = params
+         
 
             // Display some text on the newly created text view
-            text_view.text = i.toString()
+            date.text = i.toString()
 
-            when (dayOfWeek_firstDayOfMonth) {
+            when (dayOfWeek_firstDayOfMonth - 1) {
+
                 0 -> {
-                    day_0.addView(text_view)
+                    day_0.addView(date)
                     dayOfWeek_firstDayOfMonth++
                 }
                 1 -> {
-                    day_1.addView(text_view)
+                    day_1.addView(date)
                     dayOfWeek_firstDayOfMonth++
                 }
                 2 -> {
-                    day_2.addView(text_view)
+                    day_2.addView(date)
                     dayOfWeek_firstDayOfMonth++
                 }
                 3 -> {
-                    day_3.addView(text_view)
+                    day_3.addView(date)
                     dayOfWeek_firstDayOfMonth++
                 }
                 4 -> {
-                    day_4.addView(text_view)
+                    day_4.addView(date)
                     dayOfWeek_firstDayOfMonth++
                 }
                 5 -> {
-                    day_5.addView(text_view)
+                    day_5.addView(date)
                     dayOfWeek_firstDayOfMonth++
                 }
                 6 -> {
-                    day_6.addView(text_view)
+                    day_6.addView(date)
                     dayOfWeek_firstDayOfMonth++
                 }
                 7 -> {
-                    day_7.addView(text_view)
+                    day_7.addView(date)
                     dayOfWeek_firstDayOfMonth++
                 }
                 8 -> {
-                    day_8.addView(text_view)
+                    day_8.addView(date)
                     dayOfWeek_firstDayOfMonth++
                 }
                 9 -> {
-                    day_9.addView(text_view)
+                    day_9.addView(date)
                     dayOfWeek_firstDayOfMonth++
                 }
                 10 -> {
-                    day_10.addView(text_view)
+                    day_10.addView(date)
                     dayOfWeek_firstDayOfMonth++
                 }
                 11 -> {
-                    day_11.addView(text_view)
+                    day_11.addView(date)
                     dayOfWeek_firstDayOfMonth++
                 }
                 12 -> {
-                    day_12.addView(text_view)
+                    day_12.addView(date)
                     dayOfWeek_firstDayOfMonth++
                 }
                 13 -> {
-                    day_13.addView(text_view)
+                    day_13.addView(date)
                     dayOfWeek_firstDayOfMonth++
                 }
                 14 -> {
-                    day_14.addView(text_view)
+                    day_14.addView(date)
                     dayOfWeek_firstDayOfMonth++
                 }
                 15 -> {
-                    day_15.addView(text_view)
+                    day_15.addView(date)
                     dayOfWeek_firstDayOfMonth++
                 }
                 16 -> {
-                    day_16.addView(text_view)
+                    day_16.addView(date)
                     dayOfWeek_firstDayOfMonth++
                 }
                 17 -> {
-                    day_17.addView(text_view)
+                    day_17.addView(date)
                     dayOfWeek_firstDayOfMonth++
                 }
                 18 -> {
-                    day_18.addView(text_view)
+                    day_18.addView(date)
                     dayOfWeek_firstDayOfMonth++
                 }
-
-
+                19 -> {
+                    day_19.addView(date)
+                    dayOfWeek_firstDayOfMonth++
+                }
+                20 -> {
+                    day_20.addView(date)
+                    dayOfWeek_firstDayOfMonth++
+                }
+                21 -> {
+                    day_21.addView(date)
+                    dayOfWeek_firstDayOfMonth++
+                }
+                22 -> {
+                    day_22.addView(date)
+                    dayOfWeek_firstDayOfMonth++
+                }
+                23 -> {
+                    day_23.addView(date)
+                    dayOfWeek_firstDayOfMonth++
+                }
+                24 -> {
+                    day_24.addView(date)
+                    dayOfWeek_firstDayOfMonth++
+                }
+                25 -> {
+                    day_25.addView(date)
+                    dayOfWeek_firstDayOfMonth++
+                }
+                26 -> {
+                    day_26.addView(date)
+                    dayOfWeek_firstDayOfMonth++
+                }
+                27 -> {
+                    day_27.addView(date)
+                    dayOfWeek_firstDayOfMonth++
+                }
+                28 -> {
+                    day_28.addView(date)
+                    dayOfWeek_firstDayOfMonth++
+                }
+                29 -> {
+                    day_29.addView(date)
+                    dayOfWeek_firstDayOfMonth++
+                }
+                30 -> {
+                    day_30.addView(date)
+                    dayOfWeek_firstDayOfMonth++
+                }
+                31 -> {
+                    day_31.addView(date)
+                    dayOfWeek_firstDayOfMonth++
+                }
+                32 -> {
+                    day_32.addView(date)
+                    dayOfWeek_firstDayOfMonth++
+                }
+                33 -> {
+                    day_33.addView(date)
+                    dayOfWeek_firstDayOfMonth++
+                }
+                34 -> {
+                    day_34.addView(date)
+                    dayOfWeek_firstDayOfMonth++
+                }
+                35 -> {
+                    day_35.addView(date)
+                    dayOfWeek_firstDayOfMonth++
+                }
+                36 -> {
+                    day_36.addView(date)
+                    dayOfWeek_firstDayOfMonth++
+                }
+                36 -> {
+                    day_36.addView(date)
+                    dayOfWeek_firstDayOfMonth++
+                }
+                37 -> {
+                    day_37.addView(date)
+                    dayOfWeek_firstDayOfMonth++
+                }
+                38 -> {
+                    day_38.addView(date)
+                    dayOfWeek_firstDayOfMonth++
+                }
+                39 -> {
+                    day_39.addView(date)
+                    dayOfWeek_firstDayOfMonth++
+                }
+                40 -> {
+                    day_40.addView(date)
+                    dayOfWeek_firstDayOfMonth++
+                }
             }
             /*if (day_40) {
-                day_2.addView(text_view)
+                day_2.addView(date)
             }*/
         }
 

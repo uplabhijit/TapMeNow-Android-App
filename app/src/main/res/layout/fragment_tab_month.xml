@@ -152,7 +152,7 @@
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
                         android:padding="@dimen/_5sdp"
-                        android:text="@string/saturday_letter"/>
+                        android:text="@string/sunday_letter"/>
             </LinearLayout>
         </LinearLayout>
 
