@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+                android:id="@+id/nav_mycalenders"
+                android:icon="@drawable/calendar3"
+                android:title="My Calenders"/>
+        <item
+                android:id="@+id/nav_upcommingtaps"
+                android:icon="@drawable/calendar2"
+                android:title="Upcomming Taps"/>
+        <item
+                android:id="@+id/nav_library"
+                android:icon="@drawable/group_389"
+                android:title="Library"/>
+
+    </group>
+
+    <item android:title="ACCOUNT">
+        <menu>
+            <item
+                    android:id="@+id/nav_myaccount"
+                    android:icon="@drawable/profile"
+                    android:title="My Account"/>
+            <item
+                    android:id="@+id/nav_notifications"
+                    android:icon="@drawable/notification"
+                    android:title="Notifications"/>
+            <item
+                    android:id="@+id/nav_signout"
+                    android:icon="@drawable/logout"
+                    android:title="Sign Out"/>
+        </menu>
+    </item>
+
+</menu>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "126836777940",
+    "firebase_url": "https://tapmenow-c3763.firebaseio.com",
+    "project_id": "tapmenow-c3763",
+    "storage_bucket": "tapmenow-c3763.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:126836777940:android:693ef5b468ca0e3f",
+        "android_client_info": {
+          "package_name": "com.example.tapmenow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "126836777940-ckunevhsjifh9oh0ve9qi2t20214ccfp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tapmenow",
+            "certificate_hash": "7175a3add88b572ebfcf14ca9e31e76dcc957c23"
+          }
+        },
+        {
+          "client_id": "126836777940-k72r6irane2t36vnclq0li0q94v70bdm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHiLZeUoZiFOxcMHTkpXvlbYLXQSJDIlI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "126836777940-k72r6irane2t36vnclq0li0q94v70bdm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

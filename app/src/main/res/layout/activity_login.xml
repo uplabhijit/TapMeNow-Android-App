@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+    <!---->
+    <LinearLayout android:id="@+id/tabs" android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:layout_marginHorizontal="@dimen/_20sdp"
+                  android:orientation="horizontal" android:layout_marginTop="@dimen/_20sdp"
+    >
+        <TextView android:id="@+id/login_Tab" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/Login_txt" android:layout_marginRight="@dimen/_4sdp"
+                  android:padding="@dimen/_5sdp"
+                  android:textSize="@dimen/_20sdp"
+                  android:fontFamily="sans-serif-light"
+                  android:textStyle="bold"
+                  android:textColor="@color/black"/>
+        <TextView android:id="@+id/signup_Tab" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/Signup_txt"
+                  android:textSize="@dimen/_20sdp"
+                  android:fontFamily="sans-serif-light"
+                  android:textColor="@color/grey"
+                  android:textStyle="bold"
+                  android:layout_marginLeft="@dimen/_4sdp" android:padding="@dimen/_5sdp"/>
+
+    </LinearLayout>
+    <!---->
+
+    <!--Start of Login layout-->
+    <RelativeLayout android:id="@+id/rl_login_layout" android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/tabs">
+
+        <RelativeLayout
+                android:id="@+id/login_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingTop="15dp"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:paddingBottom="15dp"
+                android:paddingRight="15dp"
+                android:background="@drawable/card_background"
+                android:descendantFocusability="afterDescendants">
+
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                          android:orientation="vertical">
+                <android.support.design.widget.TextInputLayout
+                        android:id="@+id/email_input_layout"
+                        android:focusableInTouchMode="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:theme="@style/TextLabel">
+
+                    <EditText
+                            android:id="@+id/editText_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
+                            android:hint="@string/Edittxt_hint_Email"
+                            android:fontFamily="sans-serif-light"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textColorHint="@color/EditText_hit_color"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                        android:id="@+id/password_input_layout"
+                        android:focusableInTouchMode="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:theme="@style/TextLabel"
+                >
+
+                    <EditText
+                            android:id="@+id/editText_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-light"
+                            android:hint="@string/Edittxt_hint_Password"
+                            android:maxLines="1"
+                            android:inputType="textPassword"
+                            android:singleLine="true"
+                            android:textColorHint="@color/EditText_hit_color"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_20sdp"
+                >
+
+                    <TextView android:id="@+id/forgotPasswordButton" android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="@string/Forgot_Password" android:layout_alignParentLeft="true"
+                              android:padding="@dimen/_8sdp"
+                              android:fontFamily="sans-serif-light"
+                    />
+
+
+                    <TextView android:id="@+id/loginButton" android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="@string/Login_txt" android:layout_alignParentRight="true"
+                              android:textStyle="bold"
+                              android:fontFamily="sans-serif-light"
+                              android:textColor="@color/LoginButton_txt_color" android:textAllCaps="true"
+                              android:paddingHorizontal="@dimen/_12sdp" android:paddingVertical="@dimen/_8sdp"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+        <!--Footer starts here-->
+        <RelativeLayout android:id="@+id/rl_footer" android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_15sdp"
+                        android:layout_alignParentBottom="true" android:layout_marginHorizontal="@dimen/_20sdp">
+            <!--Setting value programatically-->
+            <TextView android:id="@+id/txt_or_joinwith" android:layout_width="wrap_content"
+                      android:layout_height="wrap_content" android:textColor="@color/black"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                          android:orientation="horizontal"
+                          android:paddingLeft="15dp"
+                          android:paddingTop="15dp"
+                          android:layout_marginTop="@dimen/_25sdp"
+                          android:paddingBottom="15dp"
+                          android:paddingRight="15dp"
+                          android:background="@drawable/card_background"
+                          android:descendantFocusability="afterDescendants">
+
+                <RelativeLayout android:id="@+id/rl_loginwith_fb" android:layout_width="0dp"
+                                android:layout_height="wrap_content" android:layout_weight="1">
+                    <RelativeLayout android:id="@+id/loginWithFbBtn" android:layout_width="@dimen/_100sdp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:background="@drawable/facebook_textview_background">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                  android:text="@string/LogInWithFb" android:textColor="@color/blue"
+                                  android:fontFamily="sans-serif-light"
+                                  android:layout_centerInParent="true"
+                                  android:paddingHorizontal="@dimen/_18sdp" android:paddingVertical="@dimen/_8sdp"
+                        />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout android:id="@+id/rl_login_with_google" android:layout_width="0dp"
+                                android:layout_height="wrap_content" android:layout_weight="1">
+                    <RelativeLayout android:id="@+id/loginWithGoogleBtn" android:layout_width="@dimen/_100sdp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:background="@drawable/google_textview_background">
+                        <TextView android:id="@+id/txtview_loginwithgoogle" android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:fontFamily="sans-serif-light"
+                                  android:text="@string/LogInWithGoogle" android:textColor="@color/Red"
+                                  android:layout_centerInParent="true"
+                                  android:paddingHorizontal="@dimen/_18sdp" android:paddingVertical="@dimen/_8sdp"
+                        />
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+    <!--Footer ends here-->
+    <!--End of Login layout-->
+
+    <!--Start of Registration layout-->
+    <RelativeLayout android:id="@+id/rl_Signup_layout" android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/tabs" android:visibility="gone">
+        <RelativeLayout
+                android:id="@+id/signup_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingTop="15dp"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:paddingBottom="15dp"
+                android:paddingRight="15dp"
+                android:background="@drawable/card_background"
+                android:descendantFocusability="afterDescendants">
+            <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                              android:orientation="vertical">
+                    <android.support.design.widget.TextInputLayout
+                            android:id="@+id/firstName_input_layout_registration"
+                            android:focusableInTouchMode="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:theme="@style/TextLabel">
+
+                        <EditText
+                                android:id="@+id/editText_firstName_registration"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:hint="@string/Edittxt_hint_firstname"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:textColorHint="@color/EditText_hit_color"/>
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                            android:id="@+id/lastName_input_layout_registration"
+                            android:focusableInTouchMode="true"
+                            android:layout_width="match_parent"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:layout_height="wrap_content"
+                            android:theme="@style/TextLabel"
+                    >
+
+                        <EditText
+                                android:id="@+id/editText_lastName_registration"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:hint="@string/Edittxt_hint_lastname"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:textColorHint="@color/EditText_hit_color"/>
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                            android:id="@+id/email_input_layout_registration"
+                            android:focusableInTouchMode="true"
+                            android:layout_width="match_parent"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:layout_height="wrap_content"
+                            android:theme="@style/TextLabel"
+                    >
+
+                        <EditText
+                                android:id="@+id/editText_email_registration"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textEmailAddress"
+                                android:hint="@string/Edittxt_hint_Email"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:textColorHint="@color/EditText_hit_color"/>
+                    </android.support.design.widget.TextInputLayout>
+                    <android.support.design.widget.TextInputLayout
+                            android:id="@+id/phone_input_layout_registration"
+                            android:focusableInTouchMode="true"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:theme="@style/TextLabel">
+
+                        <EditText
+                                android:id="@+id/editText_phone_registration"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:hint="@string/Edittxt_hint_phone"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:textColorHint="@color/EditText_hit_color"/>
+                    </android.support.design.widget.TextInputLayout>
+                    <android.support.design.widget.TextInputLayout
+                            android:id="@+id/password_input_layout_registration"
+                            android:focusableInTouchMode="true"
+                            android:layout_width="match_parent"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:layout_height="wrap_content"
+                            android:theme="@style/TextLabel"
+                    >
+
+                        <EditText
+                                android:id="@+id/editText_password_registration"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPassword"
+                                android:hint="@string/Edittxt_hint_Password"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:textColorHint="@color/EditText_hit_color"/>
+                    </android.support.design.widget.TextInputLayout>
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_20sdp"
+                    >
+
+
+                        <TextView android:id="@+id/loginButton_registration" android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="@string/Signup_txt" android:layout_alignParentRight="true"
+                                  android:textStyle="bold"
+                                  android:textColor="@color/LoginButton_txt_color" android:textAllCaps="true"
+                                  android:paddingHorizontal="@dimen/_12sdp" android:paddingVertical="@dimen/_8sdp"/>
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </ScrollView>
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <!--End of Registration layout-->
+
+</RelativeLayout>

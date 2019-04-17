@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#EA425C</color>
+    <color name="colorPrimaryDark">#000</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+    <color name="EditText_hit_color">#CABBBBBB</color>
+    <color name="grey">#CABBBBBB</color>
+    <color name="LoginButton_txt_color">#EA425C</color>
+    <color name="Red">#EA425C</color>
+    <color name="blue">#0A79DF</color>
+    <color name="light_grey">#7B8788</color>
+    <color name="toolbar">#efefef</color>
+    <color name="toolbar_text">#8f000000</color>
+    <color name="accent">#2789e4</color>
+    <color name="md_grey_200">#EEEEEE</color>
+
+</resources>
