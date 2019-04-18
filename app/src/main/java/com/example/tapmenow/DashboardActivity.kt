@@ -21,7 +21,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class DashboardActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
     var shouldShow: Boolean = false;
     internal var dateFormatForMonth = SimpleDateFormat("MMM , yyyy", Locale.getDefault())
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +42,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         onTap()
         //Setting the Current date in Appbar
         txt_date.text = dateFormatForMonth.format(compactcalendar_view.getFirstDayOfCurrentMonth())
+
         //Calender View for AppBar
         compactcalendar_view.setListener(object : CompactCalendarView.CompactCalendarViewListener {
             override fun onDayClick(dateClicked: Date) {
