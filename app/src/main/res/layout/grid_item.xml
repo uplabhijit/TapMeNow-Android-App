@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-
-                android:padding="10dp">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/ll_griditem"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center"
+              android:orientation="vertical"
+              android:padding="10dp">
 
     <TextView
             android:id="@+id/calendar_day_gridcell"
@@ -15,10 +15,10 @@
             android:textColor="#000"
             android:textSize="15sp"></TextView>
 
-    <!-- <TextView
+     <TextView
          android:id="@+id/num_events_per_day"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:padding="5dp"></TextView>-->
-</RelativeLayout>
+         android:padding="5dp"></TextView>
+</LinearLayout>
 

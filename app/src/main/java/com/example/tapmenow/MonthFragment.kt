@@ -10,10 +10,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.GridView
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -38,6 +35,8 @@ class MonthFragment : Fragment(), View.OnClickListener {
     internal lateinit var nextMonth: ImageView
     internal lateinit var calendarView: GridView
     internal lateinit var adapter: GridCellAdapter
+
+    var ll_griditem: LinearLayout? = null
 
     internal var dateTemplate = "MMMM yyyy"
     internal lateinit var _calendar: Calendar
@@ -64,6 +63,7 @@ class MonthFragment : Fragment(), View.OnClickListener {
     }
 
     private fun initUiElements() {
+        ll_griditem = view.findViewById(R.id.ll_griditem) as? LinearLayout
         _calendar = Calendar.getInstance(Locale.getDefault())
         month = _calendar.get(Calendar.MONTH) + 1
         year = _calendar.get(Calendar.YEAR)
@@ -218,7 +218,7 @@ class MonthFragment : Fragment(), View.OnClickListener {
             private set
         var currentWeekDay: Int = 0
         private var gridcell: TextView? = null
-        private val num_events_per_day: TextView? = null
+        private var num_events_per_day: TextView? = null
         private val eventsPerMonthMap: HashMap<*, *>?
         private val dateFormatter = SimpleDateFormat("dd-MMM-yyyy")
 
@@ -416,6 +416,17 @@ class MonthFragment : Fragment(), View.OnClickListener {
             // Set the Day GridCell
             gridcell!!.text = theday
             gridcell!!.tag = "$theday-$themonth-$theyear"
+            val text_view: TextView = TextView(context)
+
+            var params: LinearLayout.LayoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT, // This will define text view width
+                LinearLayout.LayoutParams.WRAP_CONTENT
+
+            )
+            text_view.layoutParams = params
+
+            text_view.setTextColor(resources.getColor(R.color.colorAccent))
+            ll_griditem?.addView(text_view)
             Log.d(tag, "Setting GridCell $theday-$themonth-$theyear")
 
             if (day_color[1] == "GREY") {
