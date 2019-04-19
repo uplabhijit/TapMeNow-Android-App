@@ -11,24 +11,7 @@
     <style name="AppTheme.ActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="actionMenuTextColor">@color/white</item>
     </style>
-    <style name="DayView">
-        <item name="android:gravity">center</item>
-        <item name="android:textSize">@dimen/_17sdp</item>
-        <item name="android:fontFamily">sans-serif-light</item>
-    </style>
 
-    <style name="MetaView" parent="DayView">
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">@dimen/_14sdp</item>
-    </style>
-
-    <style name="WeekNumberStyle">
-        <item name="android:textStyle">bold</item>
-        <item name="android:gravity">top|center_horizontal</item>
-        <item name="android:textSize">@dimen/_11sdp</item>
-        <item name="android:textColor">@color/md_grey_200</item>
-        <item name="android:fontFamily">sans-serif-light</item>
-    </style>
     <style name="TextLabel" parent="TextAppearance.AppCompat">
         <!-- Hint color and label color in FALSE state -->
         <item name="android:textColorHint">@color/grey</item>
@@ -40,8 +23,6 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
     <style name="NavigationView">
         <item name="fontFamily">sans-serif-light</item>
         <item name="android:textStyle">bold</item>
