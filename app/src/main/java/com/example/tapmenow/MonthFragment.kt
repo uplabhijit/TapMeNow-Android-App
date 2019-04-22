@@ -14,6 +14,10 @@ import android.widget.*
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
+import android.widget.LinearLayout
+import android.widget.LinearLayout.GONE
+import android.widget.LinearLayout.LayoutParams
+import android.widget.TextView
 
 
 /**
@@ -36,7 +40,6 @@ class MonthFragment : Fragment(), View.OnClickListener {
     internal lateinit var calendarView: GridView
     internal lateinit var adapter: GridCellAdapter
 
-    var ll_griditem: LinearLayout? = null
 
     internal var dateTemplate = "MMMM yyyy"
     internal lateinit var _calendar: Calendar
@@ -63,7 +66,7 @@ class MonthFragment : Fragment(), View.OnClickListener {
     }
 
     private fun initUiElements() {
-        ll_griditem = view.findViewById(R.id.ll_griditem) as? LinearLayout
+
         _calendar = Calendar.getInstance(Locale.getDefault())
         month = _calendar.get(Calendar.MONTH) + 1
         year = _calendar.get(Calendar.YEAR)
@@ -218,6 +221,8 @@ class MonthFragment : Fragment(), View.OnClickListener {
             private set
         var currentWeekDay: Int = 0
         private var gridcell: TextView? = null
+        private var ll_griditem: LinearLayout? = null
+
         private var num_events_per_day: TextView? = null
         private val eventsPerMonthMap: HashMap<*, *>?
         private val dateFormatter = SimpleDateFormat("dd-MMM-yyyy")
@@ -393,9 +398,9 @@ class MonthFragment : Fragment(), View.OnClickListener {
                 val inflater = _context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
                 row = inflater.inflate(R.layout.grid_item, parent, false)
             }
-
             // Get a reference to the Day gridcell
             gridcell = row!!.findViewById(R.id.calendar_day_gridcell) as TextView
+            ll_griditem = row!!.findViewById(R.id.ll_griditem) as LinearLayout
             gridcell!!.setOnClickListener(this)
 
             // ACCOUNT FOR SPACING
@@ -412,21 +417,41 @@ class MonthFragment : Fragment(), View.OnClickListener {
                     //  num_events_per_day.setText(numEvents.toString());
                 }
             }
-
+            println(position)
             // Set the Day GridCell
             gridcell!!.text = theday
             gridcell!!.tag = "$theday-$themonth-$theyear"
-            val text_view: TextView = TextView(context)
 
-            var params: LinearLayout.LayoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT, // This will define text view width
-                LinearLayout.LayoutParams.WRAP_CONTENT
+            /////////////////////////////////////////////////////
+            if (position == 2) {
+                ll_griditem!!.removeAllViews()
+                for (i in 1..2) {
+                    //ll_griditem!!.visibility = View.GONE
+                    val lparams = LayoutParams(
+                        LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT
+                    )
+                    val tv = TextView(context)
+                    tv.layoutParams = lparams
 
-            )
-            text_view.layoutParams = params
+                    tv.setBackgroundColor(Color.parseColor("#74B9FF"))
+                    if (i == 1) {
 
-            text_view.setTextColor(resources.getColor(R.color.colorAccent))
-            ll_griditem?.addView(text_view)
+                        tv.text = "Birthday"
+                        tv.setBackgroundColor(Color.parseColor("#74B9FF"))
+                        tv.setTextColor(resources.getColor(R.color.blue))
+                    }
+                    if (i == 2) {
+
+                        tv.text = "Greet"
+                        tv.setBackgroundColor(Color.parseColor("#F9DDA4"))
+                        tv.setTextColor(Color.parseColor("#DFAF2B"))
+                    }
+                    tv.setSingleLine()
+
+                    this.ll_griditem!!.addView(tv)
+                }
+            }
+            ///////////////////////////////////////////////////////////
             Log.d(tag, "Setting GridCell $theday-$themonth-$theyear")
 
             if (day_color[1] == "GREY") {

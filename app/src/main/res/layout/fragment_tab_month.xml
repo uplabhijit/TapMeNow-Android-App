@@ -59,6 +59,7 @@
             android:layout_height="match_parent"
             android:layout_below="@id/header"
             android:numColumns="7"
-            android:verticalSpacing="@dimen/_10sdp"></GridView>
+            android:background="#6e6e6e"
+            android:verticalSpacing="@dimen/_40sdp"></GridView>
 
 </RelativeLayout>
