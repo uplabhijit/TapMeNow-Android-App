@@ -21,7 +21,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-class DashboardActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
+class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     var shouldShow: Boolean = false;
     internal var dateFormatForMonth = SimpleDateFormat("MMM , yyyy", Locale.getDefault())
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +41,7 @@ class DashboardActivity : AppCompatActivity(),NavigationView.OnNavigationItemSel
         configureTabLayout()
         onTap()
         //Setting the Current date in Appbar
-        txt_date.text = dateFormatForMonth.format(compactcalendar_view.getFirstDayOfCurrentMonth())
+        setDateToolbar()
 
         //Calender View for AppBar
         compactcalendar_view.setListener(object : CompactCalendarView.CompactCalendarViewListener {
@@ -54,12 +54,103 @@ class DashboardActivity : AppCompatActivity(),NavigationView.OnNavigationItemSel
 
             override fun onMonthScroll(firstDayOfNewMonth: Date) {
                 Log.d("MONTHSCROLL", "Month was scrolled to: $firstDayOfNewMonth")
-                txt_date.setText(dateFormatForMonth.format(firstDayOfNewMonth))
+                setDateToolbar()
             }
         })
 
 
     }
+
+    fun setDateToolbar(month: Int? = null, year: String? = null) {
+
+        if (month == null && year == null) {
+
+            txt_date.text = dateFormatForMonth.format(compactcalendar_view.getFirstDayOfCurrentMonth())
+        } else {
+            println("monthfromfragment" + month)
+            when (month) {
+
+                1 -> {
+
+                    txt_date.text = "Jan, $year"
+                    val calendar = Calendar.getInstance()
+                    compactcalendar_view.setCurrentDate(getMiliseconds(1, year));
+
+                }
+                2 -> {
+                    txt_date.text = "Feb, $year"
+                    val calendar = Calendar.getInstance()
+                    compactcalendar_view.setCurrentDate(getMiliseconds(2, year));
+                }
+                3 -> {
+                    txt_date.text = "Mar, $year"
+                    val calendar = Calendar.getInstance()
+                    compactcalendar_view.setCurrentDate(getMiliseconds(3, year));
+                }
+                4 -> {
+                    txt_date.text = "Apr, $year"
+                    val calendar = Calendar.getInstance()
+                    compactcalendar_view.setCurrentDate(getMiliseconds(4, year));
+                }
+                5 -> {
+                    txt_date.text = "May, $year"
+                    val calendar = Calendar.getInstance()
+                    compactcalendar_view.setCurrentDate(getMiliseconds(5, year));
+                }
+                6 -> {
+                    txt_date.text = "Jun, $year"
+                    val calendar = Calendar.getInstance()
+                    compactcalendar_view.setCurrentDate(getMiliseconds(6, year));
+                }
+                7 -> {
+                    txt_date.text = "Jul, $year"
+                    val calendar = Calendar.getInstance()
+                    compactcalendar_view.setCurrentDate(getMiliseconds(7, year));
+                }
+                8 -> {
+                    txt_date.text = "Aug, $year"
+                    val calendar = Calendar.getInstance()
+                    compactcalendar_view.setCurrentDate(getMiliseconds(8, year));
+                }
+
+                9 -> {
+                    txt_date.text = "Sep, $year"
+                    val calendar = Calendar.getInstance()
+                    compactcalendar_view.setCurrentDate(getMiliseconds(9, year));
+                }
+                10 -> {
+                    txt_date.text = "Oct, $year"
+                    val calendar = Calendar.getInstance()
+                    compactcalendar_view.setCurrentDate(getMiliseconds(10, year));
+                }
+                11 -> {
+                    txt_date.text = "Nov, $year"
+                    val calendar = Calendar.getInstance()
+                    compactcalendar_view.setCurrentDate(getMiliseconds(11, year));
+                }
+                12 -> {
+                    txt_date.text = "Dec, $year"
+                    val calendar = Calendar.getInstance()
+                    compactcalendar_view.setCurrentDate(getMiliseconds(12, year));
+                }
+            }
+
+
+        }
+    }
+
+    //get miliseconds based on month,year &day
+    private fun getMiliseconds(month: Int, year: String?): Date? {
+
+
+        val calendar = Calendar.getInstance()
+        calendar.set(
+            year!!.toInt(), month - 1, 1, 0, 0, 0
+        )
+        println("calendar.timeInMillis" + calendar.timeInMillis + " " + month + " " + year)
+        return Date(calendar.timeInMillis)
+    }
+
 
     private fun onTap() {
         rl_addEvent.setOnClickListener {

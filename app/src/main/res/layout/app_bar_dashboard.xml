@@ -40,6 +40,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:text="January,2019"
+                                android:fontFamily="@font/poppins"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_15sdp"/>
 
