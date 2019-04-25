@@ -2,6 +2,7 @@ package com.example.tapmenow
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.support.design.widget.NavigationView
 import android.support.design.widget.TabLayout
 import android.support.v4.view.GravityCompat
@@ -11,9 +12,10 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-
+import android.widget.Toast
 import com.example.tapmenow.CustomAdapters.ViewPagerAdapter
-import com.example.tapmenow.FragmentActivity.CommonActivity
+import com.example.tapmenow.Fragments.MyCalendersFragment
+import com.example.tapmenow.Fragments.UpCommingTapsFragment
 import com.github.sundeepk.compactcalendarview.CompactCalendarView
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import kotlinx.android.synthetic.main.app_bar_dashboard.*
@@ -205,11 +207,30 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         })
     }
 
+    private var doubleBackToExitPressedOnce = false
     override fun onBackPressed() {
+
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
             drawer_layout.closeDrawer(GravityCompat.START)
         } else {
-            super.onBackPressed()
+
+            val fm = this@DashboardActivity.getSupportFragmentManager()
+            // closing fragment if open
+            if (fm.getBackStackEntryCount() > 0) {
+                fm.popBackStack()
+                //Exit App on double back press
+            } else if (doubleBackToExitPressedOnce) {
+                super.onBackPressed()
+                return
+            } else {
+                this.doubleBackToExitPressedOnce = true
+                Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show()
+
+
+                Handler().postDelayed(Runnable { doubleBackToExitPressedOnce = false }, 2000)
+            }
+
+
         }
     }
 
@@ -224,52 +245,28 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_mycalenders -> {
-                val intent = Intent(
-                    this@DashboardActivity, CommonActivity
-                    ::class.java
-                )
-                intent.putExtra("Title", "nav_mycalenders")
-                startActivity(intent);
+                val fragmentManager = supportFragmentManager
+                fragmentManager.beginTransaction().replace(R.id.framelayout, MyCalendersFragment()).commit()
+
+
             }
             R.id.nav_upcommingtaps -> {
-                val intent = Intent(
-                    this@DashboardActivity, CommonActivity
-                    ::class.java
-                )
-                intent.putExtra("Title", "nav_upcommingtaps")
-                startActivity(intent);
+                val fragmentManager = supportFragmentManager
+                fragmentManager.beginTransaction().replace(R.id.framelayout, UpCommingTapsFragment())
+                    .addToBackStack(null).commit()
+
             }
             R.id.nav_library -> {
-                val intent = Intent(
-                    this@DashboardActivity, CommonActivity
-                    ::class.java
-                )
-                intent.putExtra("Title", "nav_library")
-                startActivity(intent);
+
             }
             R.id.nav_myaccount -> {
-                val intent = Intent(
-                    this@DashboardActivity, CommonActivity
-                    ::class.java
-                )
-                intent.putExtra("Title", "nav_myaccount")
-                startActivity(intent);
+
             }
             R.id.nav_notifications -> {
-                val intent = Intent(
-                    this@DashboardActivity, CommonActivity
-                    ::class.java
-                )
-                intent.putExtra("Title", "nav_notifications")
-                startActivity(intent);
+
             }
             R.id.nav_signout -> {
-                val intent = Intent(
-                    this@DashboardActivity, CommonActivity
-                    ::class.java
-                )
-                intent.putExtra("Title", "nav_signout")
-                startActivity(intent);
+
             }
 
         }

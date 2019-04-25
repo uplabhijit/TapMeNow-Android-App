@@ -13,7 +13,9 @@ class UpCommingTaps_ViewHolder(val items: ArrayList<Events>, val context: Contex
     RecyclerView.Adapter<ViewHolder>() {
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
         p0?.title?.text = items.get(p1).title.toString()
+        p0?.title2?.text = items.get(p1).title.toString()
         p0?.desc?.text = items.get(p1).year.toString()
+        p0?.desc2?.text = items.get(p1).year.toString()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -32,5 +34,7 @@ class UpCommingTaps_ViewHolder(val items: ArrayList<Events>, val context: Contex
 class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     // Holds the TextView that will add each animal to
     val title = view.list_title
+    val title2 = view.list_title2
     val desc = view.list_description
+    val desc2 = view.list_description2
 }

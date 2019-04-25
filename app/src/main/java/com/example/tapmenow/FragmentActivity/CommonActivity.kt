@@ -27,8 +27,6 @@ class CommonActivity : FragmentActivity() {
             val myToast = Toast.makeText(this@CommonActivity, "nav_mycalenders tapped", Toast.LENGTH_SHORT)
             myToast.setGravity(Gravity.LEFT, 200, 200)
             myToast.show()
-            val fragmentManager = supportFragmentManager
-            fragmentManager.beginTransaction().replace(R.id.framelayout, MyCalendersFragment()).commit()
 
 
         }
@@ -37,8 +35,6 @@ class CommonActivity : FragmentActivity() {
             val myToast = Toast.makeText(this@CommonActivity, "nav_upcommingtaps tapped", Toast.LENGTH_SHORT)
             myToast.setGravity(Gravity.LEFT, 200, 200)
             myToast.show()
-            val fragmentManager = supportFragmentManager
-            fragmentManager.beginTransaction().replace(R.id.framelayout, UpCommingTapsFragment()).commit()
 
 
         }

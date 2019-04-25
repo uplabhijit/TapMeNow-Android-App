@@ -26,29 +26,43 @@
                                                                  app:compactCalendarTargetHeight="250dp"
                                                                  app:compactCalendarTextColor="@color/black"
                                                                  app:compactCalendarTextSize="12sp"/>
-    <RelativeLayout
-            android:id="@+id/rl_tablayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/compactcalendar_view"
-            android:background="#DAE0E2">
 
-        <android.support.design.widget.TabLayout
-                android:id="@+id/tab_layout"
-                android:layout_width="@dimen/_175sdp"
+
+    <RelativeLayout android:id="@+id/rl_rootLayout" android:layout_below="@+id/compactcalendar_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+        <RelativeLayout
+                android:id="@+id/rl_tablayout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:layout_centerHorizontal="true"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="@style/AppTheme.NoActionBar"
-                app:tabSelectedTextColor="@color/colorAccent"
-        />
+                android:background="#DAE0E2">
+
+            <android.support.design.widget.TabLayout
+                    android:id="@+id/tab_layout"
+                    android:layout_width="@dimen/_175sdp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_centerHorizontal="true"
+                    android:minHeight="?attr/actionBarSize"
+                    android:theme="@style/AppTheme.NoActionBar"
+                    app:tabSelectedTextColor="@color/colorAccent"
+            />
+        </RelativeLayout>
+
+        <com.litetech.libs.nonswipeviewpager.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/rl_tablayout"/>
     </RelativeLayout>
 
-    <com.litetech.libs.nonswipeviewpager.ViewPager
-            android:id="@+id/viewPager"
+    <FrameLayout
+            android:id="@+id/framelayout"
             android:layout_width="match_parent"
+            android:layout_below="@+id/compactcalendar_view"
             android:layout_height="match_parent"
-            android:layout_below="@id/rl_tablayout"/>
+            android:visibility="visible">
 
+    </FrameLayout>
 </RelativeLayout>
