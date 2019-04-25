@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:padding="16dp">
+
+    <!--   <TextView
+               android:id="@+id/list_title"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="left"
+               android:paddingLeft="16dp"
+               android:text="Title"
+               android:textStyle="bold"/>
+
+       <TextView
+               android:id="@+id/list_description"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="left"
+               android:paddingLeft="16dp"
+               android:text="Description"/>
+   -->
+
+    <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+        <com.github.vipulasri.timelineview.TimelineView
+                android:id="@+id/timeline"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:markerSize="20dp"
+                app:lineWidth="2dp"
+                app:startLineColor="@color/colorPrimary"
+                app:endLineColor="@color/colorPrimary"
+                app:linePadding="5dp"/>
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_height="wrap_content">
+            <TextView
+                    android:id="@+id/list_title"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20dp"
+                    android:paddingLeft="20dp"
+                    android:text="Meeting UI/UX"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            <TextView
+                    android:id="@+id/list_description"
+                    android:textSize="15dp"
+                    android:paddingLeft="20dp"
+                    android:text="Mobile App"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

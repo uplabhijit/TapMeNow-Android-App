@@ -1,4 +1,4 @@
-package com.example.tapmenow.CustomAdapter
+package com.example.tapmenow.Models
 
 class Dates {
     var name: String? = null

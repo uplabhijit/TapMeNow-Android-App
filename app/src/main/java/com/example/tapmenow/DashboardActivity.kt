@@ -12,7 +12,8 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 
-import com.example.tapmenow.CustomAdapter.ViewPagerAdapter
+import com.example.tapmenow.CustomAdapters.ViewPagerAdapter
+import com.example.tapmenow.FragmentActivity.CommonActivity
 import com.github.sundeepk.compactcalendarview.CompactCalendarView
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import kotlinx.android.synthetic.main.app_bar_dashboard.*
@@ -22,7 +23,7 @@ import java.util.*
 
 
 class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-    var shouldShow: Boolean = false;
+    var shouldShow: Boolean = false
     internal var dateFormatForMonth = SimpleDateFormat("MMM , yyyy", Locale.getDefault())
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,7 +66,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
         if (month == null && year == null) {
 
-            txt_date.text = dateFormatForMonth.format(compactcalendar_view.getFirstDayOfCurrentMonth())
+            txt_date.text = dateFormatForMonth.format(compactcalendar_view.firstDayOfCurrentMonth)
         } else {
             println("monthfromfragment" + month)
             when (month) {
@@ -74,64 +75,64 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
                     txt_date.text = "Jan, $year"
                     val calendar = Calendar.getInstance()
-                    compactcalendar_view.setCurrentDate(getMiliseconds(1, year));
+                    compactcalendar_view.setCurrentDate(getMiliseconds(1, year))
 
                 }
                 2 -> {
                     txt_date.text = "Feb, $year"
                     val calendar = Calendar.getInstance()
-                    compactcalendar_view.setCurrentDate(getMiliseconds(2, year));
+                    compactcalendar_view.setCurrentDate(getMiliseconds(2, year))
                 }
                 3 -> {
                     txt_date.text = "Mar, $year"
                     val calendar = Calendar.getInstance()
-                    compactcalendar_view.setCurrentDate(getMiliseconds(3, year));
+                    compactcalendar_view.setCurrentDate(getMiliseconds(3, year))
                 }
                 4 -> {
                     txt_date.text = "Apr, $year"
                     val calendar = Calendar.getInstance()
-                    compactcalendar_view.setCurrentDate(getMiliseconds(4, year));
+                    compactcalendar_view.setCurrentDate(getMiliseconds(4, year))
                 }
                 5 -> {
                     txt_date.text = "May, $year"
                     val calendar = Calendar.getInstance()
-                    compactcalendar_view.setCurrentDate(getMiliseconds(5, year));
+                    compactcalendar_view.setCurrentDate(getMiliseconds(5, year))
                 }
                 6 -> {
                     txt_date.text = "Jun, $year"
                     val calendar = Calendar.getInstance()
-                    compactcalendar_view.setCurrentDate(getMiliseconds(6, year));
+                    compactcalendar_view.setCurrentDate(getMiliseconds(6, year))
                 }
                 7 -> {
                     txt_date.text = "Jul, $year"
                     val calendar = Calendar.getInstance()
-                    compactcalendar_view.setCurrentDate(getMiliseconds(7, year));
+                    compactcalendar_view.setCurrentDate(getMiliseconds(7, year))
                 }
                 8 -> {
                     txt_date.text = "Aug, $year"
                     val calendar = Calendar.getInstance()
-                    compactcalendar_view.setCurrentDate(getMiliseconds(8, year));
+                    compactcalendar_view.setCurrentDate(getMiliseconds(8, year))
                 }
 
                 9 -> {
                     txt_date.text = "Sep, $year"
                     val calendar = Calendar.getInstance()
-                    compactcalendar_view.setCurrentDate(getMiliseconds(9, year));
+                    compactcalendar_view.setCurrentDate(getMiliseconds(9, year))
                 }
                 10 -> {
                     txt_date.text = "Oct, $year"
                     val calendar = Calendar.getInstance()
-                    compactcalendar_view.setCurrentDate(getMiliseconds(10, year));
+                    compactcalendar_view.setCurrentDate(getMiliseconds(10, year))
                 }
                 11 -> {
                     txt_date.text = "Nov, $year"
                     val calendar = Calendar.getInstance()
-                    compactcalendar_view.setCurrentDate(getMiliseconds(11, year));
+                    compactcalendar_view.setCurrentDate(getMiliseconds(11, year))
                 }
                 12 -> {
                     txt_date.text = "Dec, $year"
                     val calendar = Calendar.getInstance()
-                    compactcalendar_view.setCurrentDate(getMiliseconds(12, year));
+                    compactcalendar_view.setCurrentDate(getMiliseconds(12, year))
                 }
             }
 
@@ -154,17 +155,17 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
     private fun onTap() {
         rl_addEvent.setOnClickListener {
-            val intent = Intent(this@DashboardActivity, AddEventActivity::class.java);
-            startActivity(intent);
+            val intent = Intent(this@DashboardActivity, AddEventActivity::class.java)
+            startActivity(intent)
 
         }
         rl_toolbardate.setOnClickListener {
             if (!shouldShow) {
-                compactcalendar_view.setVisibility(View.VISIBLE)
+                compactcalendar_view.visibility = View.VISIBLE
                 shouldShow = true
                 dropdownicon.setBackgroundResource(R.drawable.dropuparrow)
             } else {
-                compactcalendar_view.setVisibility(View.GONE)
+                compactcalendar_view.visibility = View.GONE
                 shouldShow = false
                 dropdownicon.setBackgroundResource(R.drawable.dropdownarrow)
             }
@@ -223,24 +224,56 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_mycalenders -> {
-                // Handle the camera action
+                val intent = Intent(
+                    this@DashboardActivity, CommonActivity
+                    ::class.java
+                )
+                intent.putExtra("Title", "nav_mycalenders")
+                startActivity(intent);
             }
             R.id.nav_upcommingtaps -> {
-
+                val intent = Intent(
+                    this@DashboardActivity, CommonActivity
+                    ::class.java
+                )
+                intent.putExtra("Title", "nav_upcommingtaps")
+                startActivity(intent);
             }
             R.id.nav_library -> {
-
+                val intent = Intent(
+                    this@DashboardActivity, CommonActivity
+                    ::class.java
+                )
+                intent.putExtra("Title", "nav_library")
+                startActivity(intent);
             }
             R.id.nav_myaccount -> {
-
+                val intent = Intent(
+                    this@DashboardActivity, CommonActivity
+                    ::class.java
+                )
+                intent.putExtra("Title", "nav_myaccount")
+                startActivity(intent);
             }
             R.id.nav_notifications -> {
-
+                val intent = Intent(
+                    this@DashboardActivity, CommonActivity
+                    ::class.java
+                )
+                intent.putExtra("Title", "nav_notifications")
+                startActivity(intent);
             }
             R.id.nav_signout -> {
-
+                val intent = Intent(
+                    this@DashboardActivity, CommonActivity
+                    ::class.java
+                )
+                intent.putExtra("Title", "nav_signout")
+                startActivity(intent);
             }
+
         }
+
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true

@@ -1,4 +1,4 @@
-package com.example.tapmenow
+package com.example.tapmenow.Fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -10,7 +10,9 @@ import android.view.ViewGroup
 import android.widget.GridView
 import android.widget.ImageView
 import android.widget.TextView
-import com.example.tapmenow.CustomAdapter.GridCellAdapter
+import com.example.tapmenow.CustomAdapters.GridCellAdapter
+import com.example.tapmenow.DashboardActivity
+import com.example.tapmenow.R
 import com.example.tapmenow.SwipeListener.OnSwipeTouchListener
 import java.util.*
 

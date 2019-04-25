@@ -1,16 +1,15 @@
-package com.example.tapmenow.CustomAdapter
+package com.example.tapmenow.CustomAdapters
 
 import android.content.Context
 import android.graphics.Color
 import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.LinearLayout
-import android.widget.RelativeLayout
-import android.widget.TextView
+import android.widget.*
 import com.example.tapmenow.R
+import kotlinx.android.synthetic.main.grid_item.view.*
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -28,6 +27,23 @@ class GridCellAdapter
 ) :
     BaseAdapter(),
     View.OnClickListener {
+    override fun onClick(p0: View?) {
+        val date_month_year = p0!!.calendar_day_gridcell.tag as String
+        //            selectedDayMonthYearButton.setText("Selected: " + date_month_year);
+
+        try {
+            val parsedDate = dateFormatter.parse(date_month_year)
+            val myToast = Toast.makeText(_context, "Parsed Date: $parsedDate", Toast.LENGTH_SHORT)
+            myToast.setGravity(Gravity.CENTER, 200, 200)
+            myToast.show()
+            println("Parsed Date: $parsedDate")
+
+
+        } catch (e: ParseException) {
+            e.printStackTrace()
+        }
+    }
+
     var DAY_OFFSET: Int = 1
     private val list: MutableList<String>
     private val weekdays = arrayOf("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
@@ -244,7 +260,7 @@ class GridCellAdapter
         root_rl!!.getLayoutParams().height = (height) / 6;
         gridcell_dayofweek = row.findViewById(R.id.dayofweek) as TextView
         ll_griditem = row.findViewById(R.id.ll_griditem) as LinearLayout
-        gridcell!!.setOnClickListener(this)
+        root_rl!!.setOnClickListener(this)
 
         // ACCOUNT FOR SPACING
 
@@ -357,20 +373,6 @@ class GridCellAdapter
             gridcell!!.setTextColor(Color.parseColor("#000000"))
         }
         return row
-    }
-
-    override fun onClick(view: View) {
-        val date_month_year = view.tag as String
-        //            selectedDayMonthYearButton.setText("Selected: " + date_month_year);
-
-        try {
-            val parsedDate = dateFormatter.parse(date_month_year)
-            Log.d("TAG", "Parsed Date: $parsedDate")
-
-        } catch (e: ParseException) {
-            e.printStackTrace()
-        }
-
     }
 
 

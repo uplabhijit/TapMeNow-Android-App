@@ -16,11 +16,7 @@
                 android:label="@string/title_activity_dashboard"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity
-                android:name=".DashBoardActivity"
-                android:label="@string/title_activity_dash_board"
-                android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+
         <activity
                 android:name=".LoginActivity"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -56,6 +52,11 @@
                 android:name=".AddEventActivity"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
+        <activity
+                android:name=".FragmentActivity.CommonActivity"
+
+                android:theme="@style/AppTheme.NoActionBar"></activity>
+
     </application>
 
 </manifest>

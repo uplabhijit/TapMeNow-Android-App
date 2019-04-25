@@ -18,5 +18,5 @@
             app:noOfVisibleDays="3"
             app:textSize="12sp"
             app:todayBackgroundColor="#1848adff"
-            app:todayHeaderTextColor="@color/accent" />
+            app:todayHeaderTextColor="@color/accent"/>
 </RelativeLayout>

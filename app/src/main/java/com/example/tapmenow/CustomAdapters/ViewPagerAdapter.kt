@@ -1,12 +1,12 @@
-package com.example.tapmenow.CustomAdapter
+package com.example.tapmenow.CustomAdapters
 
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import com.example.tapmenow.DayFragment
-import com.example.tapmenow.MonthFragment
-import com.example.tapmenow.WeekFragment
+import com.example.tapmenow.Fragments.DayFragment
+import com.example.tapmenow.Fragments.MonthFragment
+import com.example.tapmenow.Fragments.WeekFragment
 
 class ViewPagerAdapter(fm: FragmentManager, private var tabCount: Int) :
     FragmentPagerAdapter(fm) {
